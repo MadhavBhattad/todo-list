@@ -5,10 +5,12 @@ dotenv.config();
 
 const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
+const CLUSTER_URL = process.env.DB_CLUSTER_URL;
+const DB_NAME = process.env.DB_NAME;
 
 const Connection = () => {
 
-    const MONGODB_URI = `mongodb+srv://daemon:dipagirish@mern-todo.gxzyxxo.mongodb.net/?retryWrites=true&w=majority&appName=mern-todo`;
+    const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@${CLUSTER_URL}/${DB_NAME}?retryWrites=true&w=majority`;
 
     mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
